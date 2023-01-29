@@ -13,11 +13,16 @@ import connor.storage.Storage;
 import connor.task.Task;
 import connor.task.TaskList;
 import connor.ui.Ui;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
 
 /**
  * Connor object that is the backbone of the program.
  */
-public class Connor {
+public class Connor extends Application {
 
     /**
      * Valid commands that are allowed to be inputted by the user.
@@ -104,6 +109,15 @@ public class Connor {
             this.storage.updateFile(tasks.getList());
         }
         sc.close();
+    }
+
+    @Override
+    public void start(Stage stage) {
+        Label helloWorld = new Label("Hello World!"); // Creating a new Label control
+        Scene scene = new Scene(helloWorld); // Setting the scene to be our Label
+
+        stage.setScene(scene); // Setting the stage to show our screen
+        stage.show(); // Render the stage.
     }
 
     public static void main(String[] args) {
